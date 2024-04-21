@@ -1,0 +1,9 @@
+commands:
+  mainet:
+    description: 查询国服舞萌DX的当前网络状态。
+
+    messages:
+      descriptions: "<p>Zlib 压缩跳过率可以很好的反馈当前 MaiNet（Wahlap Service）当前负载的情况，Web Uptime Ping 则可以反馈 MaiNet 在外部原因（DDOS）下造成的负载详情。100% 即代表服务器为稳定, uptime 越低则代表可用性越差。</p>"
+      zlib: "<p>Zlib 压缩跳过率：</p><p>- 10mins ({0} Loss)</p><p>- 30mins ({1} Loss)</p><p>- 60mins ({2} Loss)</p>"
+      web: "<p>Web Uptime Ping：</p><p>- MaimaiDXCN：{0}</p><p>- MaimaiDXCN Main Server：{1}</p><p>- MaimaiDXCN Title Server：{2}</p><p>- MaimaiDXCN Update Server：{3}</p><p>- MaimaiDXCN NetLogin Server：{4}</p><p>- MaimaiDXCN Net Server：{5}</p>"
+      tips: "<p>Tips：</p><p>- Title Server 爆炸容易造成数据获取失败</p><p>- Zlib 3% Loss 以下基本上可以正常游玩</p><p>- 10% Loss 则会有明显断网现象（请准备小黑屋工具）</p><p>- 30% Loss 则无法正常游玩（即使使用小黑屋工具）</p>"

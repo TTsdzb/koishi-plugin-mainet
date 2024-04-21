@@ -1,7 +1,15 @@
 {
   "name": "koishi-plugin-mainet",
-  "description": "借助Lucy API查询国服舞萌DX国服网络状况借助Lucy API查询舞萌DX国服。",
+  "description": "借助Lucy API查询国服舞萌DX网络状况。",
   "version": "0.0.1",
+  "contributors": [
+    "TTsdzb <ttsdzb@outlook.com>"
+  ],
+  "homepage": "https://github.com/TTsdzb/koishi-plugin-mainet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TTsdzb/koishi-plugin-mainet.git"
+  },
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -9,14 +17,15 @@
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
     "plugin"
   ],
-  "devDependencies": {},
   "peerDependencies": {
     "koishi": "^4.17.2"
+  },
+  "dependencies": {
+    "zod": "^3.22.5"
   }
 }
