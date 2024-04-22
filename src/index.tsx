@@ -35,7 +35,7 @@ const zlibDataSchema = z.object({
 
 function convertZlib(value: number, total: number): string {
   if (total === 0) return "0.000";
-  return `${((value / total) * 100).toFixed(3)}`;
+  return ((value / total) * 100).toFixed(3);
 }
 
 export function apply(ctx: Context) {
