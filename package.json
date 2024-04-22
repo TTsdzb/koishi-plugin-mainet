@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-mainet",
   "description": "借助Lucy API查询国服舞萌DX网络状况。",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "contributors": [
     "TTsdzb <ttsdzb@outlook.com>"
   ],
