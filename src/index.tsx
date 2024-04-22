@@ -33,9 +33,25 @@ const zlibDataSchema = z.object({
   zlib_Error: zlibDetailSchema,
 });
 
-function convertZlib(value: number, total: number): string {
-  if (total === 0) return "0.000";
-  return ((value / total) * 100).toFixed(3);
+function convertZlib(
+  data: z.infer<typeof zlibDataSchema>,
+  level: "10" | "30" | "60"
+): string {
+  if (data.full[level] === 0) return "0.000";
+  return ((data.zlib_Error[level] / data.full[level]) * 100).toFixed(3);
+}
+
+function convertWeb(
+  data: z.infer<typeof webDataSchema>,
+  server:
+    | "maimai DX CN"
+    | "maimai DX CN DXNet"
+    | "maimai DX CN Main"
+    | "maimai DX CN NetLogin"
+    | "maimai DX CN Title"
+    | "maimai DX CN Update"
+): string {
+  return (data.details[server].uptime * 100).toFixed(3);
 }
 
 export function apply(ctx: Context) {
@@ -55,27 +71,18 @@ export function apply(ctx: Context) {
         <i18n path=".descriptions" />
         <br />
         <i18n path=".zlib">
-          <>{convertZlib(zlibData.zlib_Error["10"], zlibData.full["10"])}%</>
-          <>{convertZlib(zlibData.zlib_Error["30"], zlibData.full["30"])}%</>
-          <>{convertZlib(zlibData.zlib_Error["60"], zlibData.full["60"])}%</>
+          <>{convertZlib(zlibData, "10")}%</>
+          <>{convertZlib(zlibData, "30")}%</>
+          <>{convertZlib(zlibData, "60")}%</>
         </i18n>
         <br />
         <i18n path=".web">
-          <>{(webData.details["maimai DX CN"].uptime * 100).toFixed(3)}%</>
-          <>{(webData.details["maimai DX CN Main"].uptime * 100).toFixed(3)}%</>
-          <>
-            {(webData.details["maimai DX CN Title"].uptime * 100).toFixed(3)}%
-          </>
-          <>
-            {(webData.details["maimai DX CN Update"].uptime * 100).toFixed(3)}%
-          </>
-          <>
-            {(webData.details["maimai DX CN NetLogin"].uptime * 100).toFixed(3)}
-            %
-          </>
-          <>
-            {(webData.details["maimai DX CN DXNet"].uptime * 100).toFixed(3)}%
-          </>
+          <>{convertWeb(webData, "maimai DX CN")}%</>
+          <>{convertWeb(webData, "maimai DX CN Main")}%</>
+          <>{convertWeb(webData, "maimai DX CN Title")}%</>
+          <>{convertWeb(webData, "maimai DX CN Update")}%</>
+          <>{convertWeb(webData, "maimai DX CN NetLogin")}%</>
+          <>{convertWeb(webData, "maimai DX CN DXNet")}%</>
         </i18n>
         <br />
         <i18n path=".tips" />
