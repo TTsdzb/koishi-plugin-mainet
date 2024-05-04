@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-mainet",
-  "description": "借助Lucy API查询国服舞萌DX网络状况。",
+  "description": "Koishi插件，借助Lucy API查询国服舞萌DX网络状况。",
   "version": "0.0.2",
   "contributors": [
     "TTsdzb <ttsdzb@outlook.com>"
@@ -27,5 +27,20 @@
   },
   "dependencies": {
     "zod": "^3.23.4"
+  },
+  "koishi": {
+    "description": {
+      "zh": "借助Lucy API查询国服舞萌DX网络状况。"
+    },
+    "service": {
+      "required": [
+        "http"
+      ],
+      "optional": [],
+      "implements": []
+    },
+    "locales": [
+      "zh"
+    ]
   }
 }
